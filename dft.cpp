@@ -21,18 +21,47 @@ vector<complex<double>> dft(vector<complex<double>> x){
 }
 
 int main(){
-    vector<complex<double>> x;
-    for (int i = 0; i < 100; i++){
-        complex<double> adder (i, 0);
-        complex<double> temp (0, 0);
-        temp = temp + adder;
-        x.push_back(temp);
+    string temp;
+    vector<complex<double>> x, y;
+    vector<complex<double>> result_x, result_y;
+    ifstream x_data, y_data;
+    x_data.open("/home/supperman/Documents/linhtinh/x.txt", ios::in);
+    y_data.open("/home/supperman/Documents/linhtinh/y.txt", ios::in);
+    ofstream res_x, res_y;
+    res_x.open("/home/supperman/Documents/linhtinh/(Python & C++) Fourier Transform and Epicycle/result_x.txt", ios::out | ios::app);
+    res_y.open("/home/supperman/Documents/linhtinh/(Python & C++) Fourier Transform and Epicycle/result_y.txt", ios::out | ios::app); 
+    while(x_data >> temp){
+        float temp_0 = stof(temp);
+        complex<double> adder (temp_0, 0);
+        cout << adder.real() << ' ' << adder.imag() << endl;
+        x.push_back(adder); 
     }
-    vector<complex<double>> result;
-    result = dft(x);
-    for (auto i : result){
-        cout << '(' << i.real() << ';' << i.imag() << "), ";
+    while (y_data >> temp){
+        float temp_0 = stof(temp);
+        complex<double> adder (temp_0, 0);
+        cout << adder.real() << ' ' << adder.imag() << endl;
+        y.push_back(adder);
     }
-    cout << endl;
+    result_x = dft(x);
+    result_y = dft(y);
+    for (unsigned int k = 0; k < result_x.size() - 1; k++){
+        int freq = k;
+        float amp_x = abs(result_x.at(k));
+        float phase_x = arg(result_x.at(k));
+        float amp_y = abs(result_y.at(k));
+        float phase_y = arg(result_y.at(k));
+
+        res_x << "[" << freq << ", " << amp_x << ", " << phase_x << "]" << endl;
+        cout << result_x.at(k) << endl;
+
+        res_y << "[" << freq << ", " << amp_y << ", " << phase_y << "]" << endl;
+        cout << result_y.at(k) << endl;
+
+    }
+    x_data.close();
+    y_data.close();
+    res_x.close();
+    res_y.close();
+    cout << "DONE!" << endl;
     return 0;
 }
