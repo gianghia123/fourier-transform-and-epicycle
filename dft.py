@@ -30,20 +30,20 @@ def dft(re_list: list, im_list: list) -> list:
         X.append(result)
     return X
 
-with open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/x.txt', 'r') as x_data:
+with open('./x.txt', 'r') as x_data:
     x = x_data.read().split('\n')
     temp = [float(i) for i in x if i != '']
     x = temp
     
 
-with open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/y.txt', 'r') as y_data:
+with open('./y.txt', 'r') as y_data:
     y = y_data.read().split('\n')
     temp = [float(i) for i in y if i != '']
     y = temp
 
 result = dft(x, y)
 
-with open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/result.txt', 'a') as result_file:
+with open('./result.txt', 'a') as result_file:
     result_file.truncate(0)
     for i in result:
         result_file.write(f'{i[0]} {i[1]} {i[2]} \n')
