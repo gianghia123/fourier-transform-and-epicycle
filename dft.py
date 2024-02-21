@@ -5,7 +5,7 @@ y = []
 
 def dft(re_list: list, im_list: list) -> list:
     '''
-    Input: Two lists, which contains real and imagine component (both as float) of inputs.\n
+    Input: Two lists, which contains real and imagine component (both as float) of inputs.
     Output: A list of lists, which contains three elements: frequency, amplitude and phase of each epicycle.
     '''
     X = []
