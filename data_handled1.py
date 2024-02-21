@@ -1,8 +1,8 @@
 import json
 
-train = open('../test.json', 'r')
-x = open('../x.txt', 'a')
-y = open('../y.txt', 'a')
+train = open('./test.json', 'r')
+x = open('./x.txt', 'a')
+y = open('./y.txt', 'a')
 
 x.truncate(0)
 y.truncate(0)
