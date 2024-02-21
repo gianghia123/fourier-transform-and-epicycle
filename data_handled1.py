@@ -1,8 +1,8 @@
 import json
 
-train = open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/test.json', 'r')
-x = open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/x.txt', 'a')
-y = open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/y.txt', 'a')
+train = open('../test.json', 'r')
+x = open('../x.txt', 'a')
+y = open('../y.txt', 'a')
 
 x.truncate(0)
 y.truncate(0)
