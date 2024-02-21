@@ -1,7 +1,7 @@
 import json
 
-data = open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/result.txt', 'r')
-result = open('/home/supperman/Documents/linhtinh/(Python) Fourier Transform and Epicycle/result.json', 'a')
+data = open('./result.txt', 'r')
+result = open('./result.json', 'a')
 
 result.truncate(0)
 
